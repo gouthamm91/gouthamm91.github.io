@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Movie Catalogue V2</title>
+	<title>Movie Catalogue</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style type="text/css">
 		html, body {
@@ -33,14 +33,14 @@
 <body>
 	<center>
 	<h2>Movie Catalogue</h2><input id="inputbox" onchange="processInput(this.value)" style="width: 60%;"/>
-	<!-- <select id="sufix">
-		<option value="&btnI"> </option>
-		<option value="+trailer+play+youtube&btnI">Trailer</option>
-		<option value="+teaser+play+youtube&btnI">Teaser</option>
+	<select id="inputtyp">
+		<option value="movie">Movies</option>
+		<option value="anime">Anime</option>
+		<!-- <option value="+teaser+play+youtube&btnI">Teaser</option>
 		<option value="+funny+Scene+play+youtube&btnI">Funny Scene</option>
 		<option value="+action+scene+play+youtube&btnI">Action Scene</option>
-		<option value="+cool+scene+play+youtube&btnI">Cool Scenes</option>
-	</select> -->
+		<option value="+cool+scene+play+youtube&btnI">Cool Scenes</option> -->
+	</select>
 	<!-- <input value="Top" type="button" onclick="processInput(document.getElementById('inputbox').value)" style="position: fixed; top: 20px; right: 20px"/> -->
 	<div id="outputdiv" style="overflow-y: scroll; max-height: 85%"></div>
 	<!-- overflow-y: scroll; -->
@@ -100,6 +100,9 @@
 		vectorsAll = lowercaseKeys(vectors());
 		// images = lowercaseKeys(nameImages());
 		collectionName = Object.getOwnPropertyNames(vectorsAll);
+
+		animeVec = lowercaseKeys(vectorAnime());
+		collectionNameAnime = Object.getOwnPropertyNames(animeVec);
 
 		function cosineSimilarity(inputVec) {
 			var score = {}
@@ -206,23 +209,36 @@
 		} 
 
 		function processInput(name) {
-			var scrollableDiv = document.getElementById('outputdiv');
-    		scrollableDiv.scrollTop = 0;
-			var name = name.toLowerCase();
-			var namef = findName(name, collectionName);
-			console.log(namef)
-			if (namef == '') {var namef = findCorrectSpelling(name, collectionName);}
-			if (namef in vectorsAll) {
-				var inputVec = vectorsAll[namef];
-				var scores = cosineSimilarity(inputVec);
-				var sortedDict = scores;
-				// var sortedDict = sortDict(scores);
-				
-				// console.log('sortedDict')
-				// console.log(sortedDict)
 
-				document.getElementById('outputdiv').innerHTML = imageUrls(sortedDict);
-			} else {alert('name not found!!!')}
+			var inputtype = document.getElementById('inputtyp').value;
+
+			if (inputtype.toLowerCase() == 'movie') {
+				var scrollableDiv = document.getElementById('outputdiv');
+	    		scrollableDiv.scrollTop = 0;
+				var name = name.toLowerCase();
+				var namef = findName(name, collectionName);
+				console.log(namef)
+				if (namef == '') {var namef = findCorrectSpelling(name, collectionName);}
+				if (namef in vectorsAll) {
+					var inputVec = vectorsAll[namef];
+					var scores = cosineSimilarity(inputVec);
+					var sortedDict = scores;
+					document.getElementById('outputdiv').innerHTML = imageUrls(sortedDict);
+				} else {alert('name not found!!!')}
+			} else if (inputtype.toLowerCase() == 'anime') {
+				var scrollableDiv = document.getElementById('outputdiv');
+	    		scrollableDiv.scrollTop = 0;
+				var name = name.toLowerCase();
+				var namef = findName(name, collectionNameAnime);
+				console.log(namef)
+				if (namef == '') {var namef = findCorrectSpelling(name, collectionNameAnime);}
+				if (namef in animeVec) {
+					var inputVec = animeVec[namef];
+					var scores = cosineSimilarity(inputVec);
+					var sortedDict = scores;
+					document.getElementById('outputdiv').innerHTML = imageUrls(sortedDict);
+				} else {alert('name not found!!!')}
+			}
 		}
 	</script>
 </body>
