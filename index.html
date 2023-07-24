@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Movie Catalogue</title>
+	<title>Movie Catalogue V3</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style type="text/css">
 		html, body {
@@ -33,7 +33,7 @@
 <body>
 	<center>
 	<h2>Movie Catalogue</h2><input id="inputbox" onchange="processInput(this.value)" style="width: 60%;"/>
-	<select id="inputtyp">
+	<select id="inputtyp" onchange="processInput(document.getElementById('inputbox')value)">
 		<option value="movie">Movies</option>
 		<option value="anime">Anime</option>
 		<!-- <option value="+teaser+play+youtube&btnI">Teaser</option>
