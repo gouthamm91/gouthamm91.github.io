@@ -160,11 +160,13 @@
 						// var outstr = outstr + '<div>';
 						
 						// var outstr = outstr + '<img onclick="window.open(\'https://www.primevideo.com/region/eu/search/ref=atv_nb_sug?ie=UTF8&phrase='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" src="https://images.hindustantimes.com/tech/rf/image_size_960x540/HT/p2/2020/04/02/Pictures/amazon-prime_27a68f2c-74ac-11ea-b308-ad7e0b841a10.jpg" style="height: 150px; width: 225px; margin: 2px;"/>';
-						
-						var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value+'+on+ott&btnI\', target=\'_blank\')" src="https://images.indianexpress.com/2022/06/OTT-1.jpeg" style="height: 150px; width: 225px; margin: 2px;"/>';
-						
+						if (document.getElementById('inputtyp').value == 'anime') {
+							var outstr = outstr + '<img onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" src="https://images.indianexpress.com/2022/06/OTT-1.jpeg" style="height: 150px; width: 225px; margin: 2px;"/>';
+						} else {
+							var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value+'+on+ott&btnI\', target=\'_blank\')" src="https://images.indianexpress.com/2022/06/OTT-1.jpeg" style="height: 150px; width: 225px; margin: 2px;"/>';
+						}
 						// var outstr = outstr + '<img onclick="window.open(\'https://www.hotstar.com/in/explore?search_query='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" src="https://static.india.com/wp-content/uploads/2023/06/image-700x472-15.png?impolicy=Medium_Resize&w=1200&h=800" style="height: 150px; width: 225px; margin: 2px;"/>';
-						var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+movie+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" src="https://variety.com/wp-content/uploads/2020/06/youtube-logo.png?w=999" style="height: 150px; width: 225px; margin: 2px;"/>';
+						var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" src="https://variety.com/wp-content/uploads/2020/06/youtube-logo.png?w=999" style="height: 150px; width: 225px; margin: 2px;"/>';
 
 						var outstr = outstr + '</center>';
 
