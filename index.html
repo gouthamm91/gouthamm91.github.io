@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Movie Catalogue V3</title>
+	<title>Movie Catalogue</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style type="text/css">
 		html, body {
@@ -32,15 +32,14 @@
 </head>
 <body>
 	<center>
-	<h2>Movie Catalogue</h2><input id="inputbox" onchange="processInput(this.value)" style="width: 60%;"/>
-	<select id="inputtyp" onchange="processInput(document.getElementById('inputbox')value)">
+	<h2>Movie Catalogue</h2><select id="inputtyp" onchange="processInput(document.getElementById('inputbox')value)">
 		<option value="movie">Movies</option>
 		<option value="anime">Anime</option>
 		<!-- <option value="+teaser+play+youtube&btnI">Teaser</option>
 		<option value="+funny+Scene+play+youtube&btnI">Funny Scene</option>
 		<option value="+action+scene+play+youtube&btnI">Action Scene</option>
 		<option value="+cool+scene+play+youtube&btnI">Cool Scenes</option> -->
-	</select>
+	</select><input id="inputbox" onchange="processInput(this.value)" style="width: 60%;"/>
 	<!-- <input value="Top" type="button" onclick="processInput(document.getElementById('inputbox').value)" style="position: fixed; top: 20px; right: 20px"/> -->
 	<div id="outputdiv" style="overflow-y: scroll; max-height: 85%"></div>
 	<!-- overflow-y: scroll; -->
