@@ -141,7 +141,7 @@
 			for (k in d) {
 				if (k in d) {
 					var val = d[k]*100;
-					console.log(val);
+					// console.log(val);
 					// var imgsrc = images[k];
 					if (val > 90) {
 						var outstr = outstr + '<div style="display: block; max-width: 100%;">';
@@ -174,13 +174,46 @@
 			return outstr
 		}
 
+		function findName(name, collectionName) {
+			var wrds = collectionName.join(" ").replace(/'/g, "").replace(/:/g, "").toLowerCase().split(" ");
+			
+			var namewrds = name.trim().replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").split(" ");
+
+			var newname = "";
+			for (n=0; n<namewrds.length; n++) {
+				var newname = newname + findCorrectSpelling(namewrds[n], wrds) + " ";
+			}
+			var newname = newname.trim().split(" ");
+
+			console.log('NEW NAME');
+			console.log(newname);
+
+			var highscore = 0;
+			var finalname = "";
+			for (c=0; c<collectionName.length; c++) {
+				var score = 0;
+				for (nn=0; nn<newname.length; nn++) {
+					if (collectionName[c].indexOf(newname[nn]) > -1) {
+						var score = score + 1;
+					}
+				}
+				if (score > highscore) {
+					var highscore = score;
+					var finalname = collectionName[c];
+				}
+			}
+			return finalname
+		} 
+
 		function processInput(name) {
 			var scrollableDiv = document.getElementById('outputdiv');
     		scrollableDiv.scrollTop = 0;
 			var name = name.toLowerCase();
-			var name = findCorrectSpelling(name, collectionName);
-			if (name in vectorsAll) {
-				var inputVec = vectorsAll[name];
+			var namef = findName(name, collectionName);
+			console.log(namef)
+			if (namef == '') {var namef = findCorrectSpelling(name, collectionName);}
+			if (namef in vectorsAll) {
+				var inputVec = vectorsAll[namef];
 				var scores = cosineSimilarity(inputVec);
 				var sortedDict = scores;
 				// var sortedDict = sortDict(scores);
