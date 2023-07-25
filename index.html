@@ -3,45 +3,6 @@
 <head>
 	<title>Movie Catalogue</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style type="text/css">
-		html, body {
-			width: 100%;
-			height: 100%;
-			font-family: verdana;
-			background-color: #202020;
-			font-size: 102%;
-			color: #DDDDDD;
-		}
-		input, select {
-			background-color: #101010;
-			border: 1px solid grey;
-			border-radius: 50px;
-			font-size: 110%;
-			color: #DDDDDD;
-			padding: 10px;
-		}
-		div {
-			margin: 2px;
-		}
-		h2 {
-			margin: 20px;
-			color: #DDDDDD;
-			display: inline-block;
-		}
-	</style>
-</head>
-<body>
-	<center>
-	<h2>Movie Catalogue</h2><select id="inputtyp" onchange="processInput(document.getElementById('inputbox').value)">
-		<option value="movie">Movies</option>
-		<option value="anime">Anime</option>
-		<option value="series">Tv Series</option>
-	</select>
-	<input id="inputbox" onchange="processInput(this.value)" style="width: 60%;"/>
-	<!-- <input value="Top" type="button" onclick="processInput(document.getElementById('inputbox').value)" style="position: fixed; top: 20px; right: 20px"/> -->
-	<div id="outputdiv" style="overflow-y: scroll; max-height: 85%"></div>
-	<!-- overflow-y: scroll; -->
-	</center>
 	<script src="VoidVectorDataNew.js"></script>
 	<script type="text/javascript">
 
@@ -147,10 +108,11 @@
 					// console.log(val);
 					// var imgsrc = images[k];
 					if (val > 90) {
-						var outstr = outstr + '<div style="display: block; max-width: 100%;">';
-						var outstr = outstr + '<div style="display: block;">';
-						var outstr = outstr + '<div style="display: block; margin-top: 30px; text-align: center;">NAME: <a style="font-size: 110%; color: white; margin: 10px;">'+k.toUpperCase()+'</a>';
-						var outstr = outstr + '<br>MATCH SCORE: <a style="font-size: 110%; color: white; margin: 10px;">'+val.toFixed(2)+'%</a></div>';
+						var outstr = outstr + '<div style="display: inline-block; max-width: 100%;">';
+						var outstr = outstr + '<div style="display: inline-block;">';
+						var outstr = outstr + '<div style="display: block; margin-top: 30px; margin-bottom: 10px; text-align: center;"><a></a><a style="font-size: 102%; color: white; margin: 10px;">'+k.toUpperCase()+'</a>';
+						var outstr = outstr + '<br><a>MATCH SCORE:</a><a style="font-size: 102%; color: white; margin: 10px;">'+val.toFixed(2)+'%</a>'
+						var outstr = outstr + '</div>';
 						var outstr = outstr + '<center>';
 						
 						// var outstr = outstr + '<img onclick="window.open(\'https://www.netflix.com/search?q='+k.replace(/'/g, '')+'\', target=\'_blank\')" src="https://i.pcmag.com/imagery/reviews/05cItXL96l4LE9n02WfDR0h-5..v1582751026.png" style="height: 150px; width: 225px; margin: 2px;"/>';
@@ -161,12 +123,12 @@
 						
 						// var outstr = outstr + '<img onclick="window.open(\'https://www.primevideo.com/region/eu/search/ref=atv_nb_sug?ie=UTF8&phrase='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" src="https://images.hindustantimes.com/tech/rf/image_size_960x540/HT/p2/2020/04/02/Pictures/amazon-prime_27a68f2c-74ac-11ea-b308-ad7e0b841a10.jpg" style="height: 150px; width: 225px; margin: 2px;"/>';
 						if (document.getElementById('inputtyp').value == 'anime') {
-							var outstr = outstr + '<img onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" src="https://images.indianexpress.com/2022/06/OTT-1.jpeg" style="height: 150px; width: 225px; margin: 2px;"/>';
+							var outstr = outstr + '<img onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" src="https://images.indianexpress.com/2022/06/OTT-1.jpeg" style="height: 150px; width: 225px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
 						} else {
-							var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value+'+on+ott&btnI\', target=\'_blank\')" src="https://images.indianexpress.com/2022/06/OTT-1.jpeg" style="height: 150px; width: 225px; margin: 2px;"/>';
+							var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value+'+on+ott&btnI\', target=\'_blank\')" src="https://images.indianexpress.com/2022/06/OTT-1.jpeg" style="height: 150px; width: 225px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
 						}
 						// var outstr = outstr + '<img onclick="window.open(\'https://www.hotstar.com/in/explore?search_query='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" src="https://static.india.com/wp-content/uploads/2023/06/image-700x472-15.png?impolicy=Medium_Resize&w=1200&h=800" style="height: 150px; width: 225px; margin: 2px;"/>';
-						var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" src="https://variety.com/wp-content/uploads/2020/06/youtube-logo.png?w=999" style="height: 150px; width: 225px; margin: 2px;"/>';
+						var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" src="https://variety.com/wp-content/uploads/2020/06/youtube-logo.png?w=999" style="height: 150px; width: 225px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
 
 						var outstr = outstr + '</center>';
 
@@ -215,6 +177,11 @@
 			}
 			return finalname
 		} 
+
+		function goToTop() {
+			var scrollableDiv = document.getElementById('outputdiv');
+	    	scrollableDiv.scrollTop = 0;
+		}
 
 		function processInput(name) {
 
@@ -271,5 +238,50 @@
 			}
 		}
 	</script>
+	<style type="text/css">
+		html, body {
+			width: 100%;
+			height: 100%;
+			font-family: verdana;
+			background-color: #202020;
+			/*font-size: 102%;*/
+			color: #DDDDDD;
+			padding:  0px;
+			margin: 0px;
+		}
+		input, select {
+			background-color: #101010;
+			border: 1px solid grey;
+			border-radius: 50px;
+			font-size: 110%;
+			color: #DDDDDD;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		div {
+			margin: 2px;
+			margin: 0px;
+		}
+		h2 {
+			margin: 20px;
+			color: #DDDDDD;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body onload="processInput(document.getElementById('inputbox').value)">
+	<center>
+	<h2>Movie Catalogue</h2>
+	<input type="button" value="Top" onclick="goToTop()"/>
+	<select id="inputtyp" onchange="processInput(document.getElementById('inputbox').value)">
+		<option value="movie">Movies</option>
+		<option value="anime">Anime</option>
+		<option value="series">Tv Series</option>
+	</select>
+	<input id="inputbox" onchange="processInput(this.value)" style="width: calc(60% - 45px);"/>
+	</center>
+	<!-- <input value="Top" type="button" onclick="processInput(document.getElementById('inputbox').value)" style="position: fixed; top: 20px; right: 20px"/> -->
+	<div id="outputdiv" style="overflow-y: scroll; max-height: 80%; border-top: 1px solid gray; background-color: #101010; text-align: center;"></div>
+	<!-- overflow-y: scroll; -->
 </body>
 </html>
