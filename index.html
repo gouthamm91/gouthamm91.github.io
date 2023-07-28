@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Movie Catalogue V0.1</title>
+	<title>Movie Catalogue</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="VoidVectorDataNew.js"></script>
+	<!-- <script src="VoidVectorDataNew.js"></script> -->
+	<script src="MovieAiDataNew.js"></script>
 	<script type="text/javascript">
 
 		function findCorrectSpelling(givenWord, collection) {
@@ -55,15 +56,15 @@
 		  }, {});
 		}
 
-		vectorsAll = lowercaseKeys(vectors());
-		// images = lowercaseKeys(nameImages());
-		collectionName = Object.getOwnPropertyNames(vectorsAll);
+		// vectorsAll = lowercaseKeys(vectors());
+		// // images = lowercaseKeys(nameImages());
+		// collectionName = Object.getOwnPropertyNames(vectorsAll);
 
-		animeVec = lowercaseKeys(vectorAnime());
-		collectionNameAnime = Object.getOwnPropertyNames(animeVec);
+		// animeVec = lowercaseKeys(vectorAnime());
+		// collectionNameAnime = Object.getOwnPropertyNames(animeVec);
 
-		seriesVec = lowercaseKeys(vectorSeries());
-		collectionNameSeries = Object.getOwnPropertyNames(seriesVec);
+		// seriesVec = lowercaseKeys(vectorSeries());
+		// collectionNameSeries = Object.getOwnPropertyNames(seriesVec);
 
 		function cosineSimilarity(inputVec, vectorsAl) {
 			var score = {}
@@ -186,9 +187,16 @@
 		function processInput(name) {
 
 			var inputtype = document.getElementById('inputtyp').value;
+			var inputlang = document.getElementById('inputlan').value;
 
-			if (inputtype.toLowerCase() == 'movie') {
-				console.log('MOVIES TRIGGERED...')
+			var data = movieAiData()[inputtype];
+
+			if (inputtype.toLowerCase() == 'movies') {
+
+				var vectorsAll = lowercaseKeys(data[inputlang]);
+				var collectionName = Object.getOwnPropertyNames(vectorsAll);
+
+				console.log(inputtype+' TRIGGERED...')
 				var scrollableDiv = document.getElementById('outputdiv');
 	    		scrollableDiv.scrollTop = 0;
 				var name = name.toLowerCase();
@@ -201,7 +209,12 @@
 					var sortedDict = scores;
 					document.getElementById('outputdiv').innerHTML = imageUrls(sortedDict);
 				} else {alert('name not found!!!')}
+
 			} else if (inputtype.toLowerCase() == 'anime') {
+
+				var animeVec = lowercaseKeys(data);
+				var collectionNameAnime = Object.getOwnPropertyNames(animeVec);
+
 				console.log('ANIMES TRIGGERED...')
 				var scrollableDiv = document.getElementById('outputdiv');
 	    		scrollableDiv.scrollTop = 0;
@@ -218,8 +231,10 @@
 					document.getElementById('outputdiv').innerHTML = imageUrls(sortedDict);
 				} else {alert('name not found!!!')}
 			} else if (inputtype.toLowerCase() == 'series') {				
-		// seriesVec = lowercaseKeys(vectorSeries());
-		// collectionNameSeries = Object.getOwnPropertyNames(seriesVec);
+
+				var seriesVec = lowercaseKeys(data[inputlang]);
+				var collectionNameSeries = Object.getOwnPropertyNames(seriesVec);
+
 				console.log('SERIES TRIGGERED...')
 				var scrollableDiv = document.getElementById('outputdiv');
 	    		scrollableDiv.scrollTop = 0;
@@ -271,17 +286,24 @@
 </head>
 <body onload="processInput(document.getElementById('inputbox').value)">
 	<center>
-	<h2>Movie Catalogue</h2>
+	<h2>Movie Wish</h2>
 	<input type="button" value="Top" onclick="goToTop()"/>
 	<select id="inputtyp" onchange="processInput(document.getElementById('inputbox').value)">
-		<option value="movie">Movies</option>
+		<option value="movies">Movies</option>
 		<option value="anime">Anime</option>
 		<option value="series">Tv Series</option>
 	</select>
-	<input id="inputbox" onchange="processInput(this.value)" style="width: calc(60% - 45px);"/>
+	<select id="inputlan" onchange="processInput(document.getElementById('inputbox').value)">
+		<option value="en">English</option>
+		<option value="ta">Tamil</option>
+		<option value="ml">Malayalam</option>
+		<option value="te">Telugu</option>
+		<option value="kn">Kanada</option>
+		<option value="hi">Hindi</option>
+	</select>
+	<input id="inputbox" onchange="processInput(this.value)" style="width: calc(60% - 40px);"/>
 	</center>
 	<!-- <input value="Top" type="button" onclick="processInput(document.getElementById('inputbox').value)" style="position: fixed; top: 20px; right: 20px"/> -->
 	<div id="outputdiv" style="overflow-y: scroll; max-height: 80%; border-top: 1px solid gray; background-color: #101010; text-align: center;"></div>
-	<!-- overflow-y: scroll; -->
 </body>
 </html>
