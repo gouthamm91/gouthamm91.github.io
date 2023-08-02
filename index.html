@@ -287,8 +287,7 @@
 <!-- <body onload="processInput(document.getElementById('inputbox').value)"> -->
 <body>
 	<center>
-	<h2>Movie Wish</h2>
-	<!-- <input type="button" value="Top" onclick="goToTop()"/> -->
+	<h2>MovieWish</h2>
 	<select id="inputtyp" onchange="processInput(document.getElementById('inputbox').value)">
 		<option value="movies">Movies</option>
 		<option value="anime">Anime</option>
@@ -302,9 +301,10 @@
 		<option value="kn">Kanada</option>
 		<option value="hi">Hindi</option>
 	</select>
-	<input id="inputbox" onchange="processInput(this.value)" style="width: calc(60% - 40px);"/>
+	<input id="inputbox" onchange="processInput(this.value)" style="width: calc(50% - 40px);"/>
+	<input type="button" value="search" onclick="processInput(document.getElementById('inputbox').value)"/>
 	</center>
 	<!-- <input value="Top" type="button" onclick="processInput(document.getElementById('inputbox').value)" style="position: fixed; top: 20px; right: 20px"/> -->
-	<div id="outputdiv" style="overflow: auto; max-height: 80%; border-top: 1px solid gray; background-color: #101010; text-align: center;"></div>
+	<div id="outputdiv" style="border-top: 1px solid gray; background-color: #101010; text-align: center;"></div>
 </body>
 </html>
