@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Movie Catalogue V0.3.80</title>
+	<title>Movie Catalogue V0.3.80-App</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <script src="VoidVectorDataNew.js"></script> -->
 	<script src="MovieAiDataNew.js"></script>
@@ -284,10 +284,11 @@
 		}
 	</style>
 </head>
-<body onload="processInput(document.getElementById('inputbox').value)">
+<!-- <body onload="processInput(document.getElementById('inputbox').value)"> -->
+<body>
 	<center>
 	<h2>Movie Wish</h2>
-	<input type="button" value="Top" onclick="goToTop()"/>
+	<!-- <input type="button" value="Top" onclick="goToTop()"/> -->
 	<select id="inputtyp" onchange="processInput(document.getElementById('inputbox').value)">
 		<option value="movies">Movies</option>
 		<option value="anime">Anime</option>
@@ -304,6 +305,6 @@
 	<input id="inputbox" onchange="processInput(this.value)" style="width: calc(60% - 40px);"/>
 	</center>
 	<!-- <input value="Top" type="button" onclick="processInput(document.getElementById('inputbox').value)" style="position: fixed; top: 20px; right: 20px"/> -->
-	<div id="outputdiv" style="overflow-y: scroll; max-height: 80%; border-top: 1px solid gray; background-color: #101010; text-align: center;"></div>
+	<div id="outputdiv" style="overflow: auto; max-height: 80%; border-top: 1px solid gray; background-color: #101010; text-align: center;"></div>
 </body>
 </html>
