@@ -110,14 +110,14 @@
 
 					if (val > 80) {
 						var imgurl = imgs[k];
-						var outstr = outstr + '<div style="display: inline-block; max-width: 175px; max-width: 135px;">';
-						var outstr = outstr + '<div style="display: inline-block;">';
-						var outstr = outstr + '<div style="display: block; margin-top: 30px; margin-bottom: 10px; text-align: center;"><a></a><a style="font-size: 100%; font-size: 75%; color: white; margin: 10px;">'+k.toUpperCase()+'</a>';
+						var outstr = outstr + '<div style="display: inline-block; width: 135px; margin: 7px;">';
+						var outstr = outstr + '<div style="display: inline-block; width: 135px;">';
+						var outstr = outstr + '<div style="display: block; margin-top: 30px; margin-bottom: 10px; text-align: center; width: 135px;"><a></a><a style="font-size: 100%; font-size: 75%; color: white; margin: 10px;">'+k.toUpperCase()+'</a>';
 						var outstr = outstr + '<br><a style="font-size: 100%; font-size: 75%;">SCORE</a><a style="font-size: 100%; font-size: 75%; color: white; margin: 10px;">'+val.toFixed(2)+'%</a>'
 						var outstr = outstr + '</div>';
 						var outstr = outstr + '<center>';
 						
-						var outstr = outstr + '<img src="'+imgurl+'" style="height: auto; width: 150px; width: 105px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
+						var outstr = outstr + '<img src="'+imgurl+'" style="height: auto; width: 150px; width: 105px; width: 100%; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
 
 						if (document.getElementById('inputtyp').value == 'anime') {
 							// var outstr = outstr + '<img onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" src="https://netstorage-tuko.akamaized.net/images/2006fab8a4e700e4.jpg?imwidth=900" style="height: 150px; width: 225px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
