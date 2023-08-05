@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0029)https://gouthamm91.github.io/ -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>MoviePick4U</title>
+	<title>Movie Catalogue V0.3.80-App-Img</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <script src="VoidVectorDataNew.js"></script> -->
 	<script src="MovieAiDataNew.js"></script>
@@ -117,18 +117,20 @@
 						var outstr = outstr + '</div>';
 						var outstr = outstr + '<center>';
 						
-						var outstr = outstr + '<img src="'+imgurl+'" style="height: auto; width: 150px; width: 105px; width: 100%; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
+						// var outstr = outstr + '<img src="'+imgurl+'" style="border: 1px solid black; border-radius: 10px; height: auto; width: 150px; width: 105px; width: 100%; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
+						var outstr = outstr + '<img src="'+imgurl+'" style="border: 1px solid #DDDDDD; border-radius: 10px; height: auto; height: 150px; width: 150px; width: 105px; width: 100%; margin: 2px;"/>';
 
 						if (document.getElementById('inputtyp').value == 'anime') {
-							// var outstr = outstr + '<img onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" src="https://netstorage-tuko.akamaized.net/images/2006fab8a4e700e4.jpg?imwidth=900" style="height: 150px; width: 225px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
-							var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>'
+
+							// var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>'
+							var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px;"/>'
 						} else {
-							// var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+on+ott&btnI\', target=\'_blank\')" src="https://t3.ftcdn.net/jpg/04/16/93/06/360_F_416930698_zpV7oPMqpFzCUYETC9K2JH0B0BfRlKra.jpg" style="height: 150px; width: 225px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
-							var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+on+ott&btnI\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>'
+							// var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+on+ott&btnI\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>'
+							var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+on+ott&btnI\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px;"/>'
 						}
 						
-						// var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRooE_KmneaADAAZ0ZA9SaEnzzZOlI7vv2mTA&usqp=CAU" style="height: 150px; width: 225px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
-						var outstr = outstr + '<br><input value="Trailer" type="button" onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>'
+						// var outstr = outstr + '<br><input value="Trailer" type="button" onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>'
+						var outstr = outstr + '<br><input value="Trailer" type="button" onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px;"/>'
 
 						var outstr = outstr + '</center>';
 
@@ -256,14 +258,14 @@
 			width: 100%;
 			height: 100%;
 			font-family: verdana;
-			background-color: #202020;
+			background-color: #252525;
 			/*font-size: 102%;*/
 			color: #DDDDDD;
 			padding:  0px;
 			margin: 0px;
 		}
 		input, select {
-			background-color: #101010;
+			background-color: #181818;
 			border: 1px solid grey;
 			border-radius: 50px;
 			font-size: 110%;
@@ -287,7 +289,7 @@
 <body onload="processInput(document.getElementById('inputbox').value)">
 <!-- <body> -->
 	<center>
-	<h2>MoviePick4U</h2><br>
+	<h2>MovieWish</h2><br>
 	<select id="inputtyp" onchange="processInput(document.getElementById(&#39;inputbox&#39;).value)">
 		<option value="movies">Movies</option>
 		<option value="anime">Anime</option>
