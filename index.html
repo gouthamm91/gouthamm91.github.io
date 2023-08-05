@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
+<!-- saved from url=(0029)https://gouthamm91.github.io/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Movie Catalogue V0.3.80-App</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <script src="VoidVectorDataNew.js"></script> -->
 	<script src="MovieAiDataNew.js"></script>
+	<script src="MovieWishImages.js"></script>
 	<script type="text/javascript">
 
 		function findCorrectSpelling(givenWord, collection) {
@@ -100,15 +101,15 @@
 			return sortedDictionary
 		}
 
-		function imageUrls(d) {
+		function imageUrls(d, imgs) {
 			var d = sortDict(d);
 			var outstr = '';
 			for (k in d) {
 				if (k in d) {
 					var val = d[k]*100;
-					// console.log(val);
-					// var imgsrc = images[k];
+
 					if (val > 80) {
+						var imgurl = imgs[k];
 						var outstr = outstr + '<div style="display: inline-block; max-width: 100%;">';
 						var outstr = outstr + '<div style="display: inline-block;">';
 						var outstr = outstr + '<div style="display: block; margin-top: 30px; margin-bottom: 10px; text-align: center;"><a></a><a style="font-size: 102%; color: white; margin: 10px;">'+k.toUpperCase()+'</a>';
@@ -116,27 +117,23 @@
 						var outstr = outstr + '</div>';
 						var outstr = outstr + '<center>';
 						
-						// var outstr = outstr + '<img onclick="window.open(\'https://www.netflix.com/search?q='+k.replace(/'/g, '')+'\', target=\'_blank\')" src="https://i.pcmag.com/imagery/reviews/05cItXL96l4LE9n02WfDR0h-5..v1582751026.png" style="height: 150px; width: 225px; margin: 2px;"/>';
-						
-						// var outstr = outstr + '</div>';
-						
-						// var outstr = outstr + '<div>';
-						
-						// var outstr = outstr + '<img onclick="window.open(\'https://www.primevideo.com/region/eu/search/ref=atv_nb_sug?ie=UTF8&phrase='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" src="https://images.hindustantimes.com/tech/rf/image_size_960x540/HT/p2/2020/04/02/Pictures/amazon-prime_27a68f2c-74ac-11ea-b308-ad7e0b841a10.jpg" style="height: 150px; width: 225px; margin: 2px;"/>';
+						var outstr = outstr + '<img src="'+imgurl+'" style="height: auto; width: 150px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
+
 						if (document.getElementById('inputtyp').value == 'anime') {
-							var outstr = outstr + '<img onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" src="https://netstorage-tuko.akamaized.net/images/2006fab8a4e700e4.jpg?imwidth=900" style="height: 150px; width: 225px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
+							// var outstr = outstr + '<img onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" src="https://netstorage-tuko.akamaized.net/images/2006fab8a4e700e4.jpg?imwidth=900" style="height: 150px; width: 225px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
+							var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" style="width: 150px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>'
 						} else {
-							var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+on+ott&btnI\', target=\'_blank\')" src="https://t3.ftcdn.net/jpg/04/16/93/06/360_F_416930698_zpV7oPMqpFzCUYETC9K2JH0B0BfRlKra.jpg" style="height: 150px; width: 225px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
+							// var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+on+ott&btnI\', target=\'_blank\')" src="https://t3.ftcdn.net/jpg/04/16/93/06/360_F_416930698_zpV7oPMqpFzCUYETC9K2JH0B0BfRlKra.jpg" style="height: 150px; width: 225px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
+							var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+on+ott&btnI\', target=\'_blank\')" style="width: 150px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>'
 						}
-						// var outstr = outstr + '<img onclick="window.open(\'https://www.hotstar.com/in/explore?search_query='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" src="https://static.india.com/wp-content/uploads/2023/06/image-700x472-15.png?impolicy=Medium_Resize&w=1200&h=800" style="height: 150px; width: 225px; margin: 2px;"/>';
-						var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRooE_KmneaADAAZ0ZA9SaEnzzZOlI7vv2mTA&usqp=CAU" style="height: 150px; width: 225px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
+						
+						// var outstr = outstr + '<img onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRooE_KmneaADAAZ0ZA9SaEnzzZOlI7vv2mTA&usqp=CAU" style="height: 150px; width: 225px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
+						var outstr = outstr + '<br><input value="Trailer" type="button" onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" style="width: 150px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>'
 
 						var outstr = outstr + '</center>';
 
 						var outstr = outstr + '</div>';
-						// var outstr = outstr + '<div>';
-						// var outstr = outstr + '<input style="width: 100%;" type="button" value="Trailer" onclick="window.open(\'https://www.google.com/search?q='+k.replace(/ /g, "+").replace(/'/g, '')+'+\'+document.getElementById(\'sufix\').value, target=\'_blank\')"/>';
-						// var outstr = outstr + '</div>';
+						
 						var outstr = outstr + '</div>';
 					} else {
 						// break;
@@ -190,6 +187,7 @@
 			var inputlang = document.getElementById('inputlan').value;
 
 			var data = movieAiData()[inputtype];
+			var imgs = images();
 
 			if (inputtype.toLowerCase() == 'movies') {
 
@@ -207,7 +205,7 @@
 					var inputVec = vectorsAll[namef];
 					var scores = cosineSimilarity(inputVec, vectorsAll);
 					var sortedDict = scores;
-					document.getElementById('outputdiv').innerHTML = imageUrls(sortedDict);
+					document.getElementById('outputdiv').innerHTML = imageUrls(sortedDict, imgs);
 				} else {alert('name not found!!!')}
 
 			} else if (inputtype.toLowerCase() == 'anime') {
@@ -228,7 +226,7 @@
 					var inputVec = animeVec[namef];
 					var scores = cosineSimilarity(inputVec, animeVec);
 					var sortedDict = scores;
-					document.getElementById('outputdiv').innerHTML = imageUrls(sortedDict);
+					document.getElementById('outputdiv').innerHTML = imageUrls(sortedDict, imgs);
 				} else {alert('name not found!!!')}
 			} else if (inputtype.toLowerCase() == 'series') {				
 
@@ -248,7 +246,7 @@
 					var inputVec = seriesVec[namef];
 					var scores = cosineSimilarity(inputVec, seriesVec);
 					var sortedDict = scores;
-					document.getElementById('outputdiv').innerHTML = imageUrls(sortedDict);
+					document.getElementById('outputdiv').innerHTML = imageUrls(sortedDict, imgs);
 				} else {alert('name not found!!!')}
 			}
 		}
@@ -288,12 +286,12 @@
 <body>
 	<center>
 	<h2>MovieWish</h2>
-	<select id="inputtyp" onchange="processInput(document.getElementById('inputbox').value)">
+	<select id="inputtyp" onchange="processInput(document.getElementById(&#39;inputbox&#39;).value)">
 		<option value="movies">Movies</option>
 		<option value="anime">Anime</option>
 		<option value="series">Tv Series</option>
 	</select>
-	<select id="inputlan" onchange="processInput(document.getElementById('inputbox').value)">
+	<select id="inputlan" onchange="processInput(document.getElementById(&#39;inputbox&#39;).value)">
 		<option value="en">English</option>
 		<option value="ta">Tamil</option>
 		<option value="ml">Malayalam</option>
@@ -301,10 +299,11 @@
 		<option value="kn">Kanada</option>
 		<option value="hi">Hindi</option>
 	</select>
-	<input id="inputbox" onchange="processInput(this.value)" style="width: calc(50% - 40px);"/>
-	<input type="button" value="search" onclick="processInput(document.getElementById('inputbox').value)"/>
+	<input id="inputbox" onchange="processInput(this.value)" style="width: calc(50% - 40px);">
+	<input type="button" value="search" onclick="processInput(document.getElementById(&#39;inputbox&#39;).value)">
 	</center>
 	<!-- <input value="Top" type="button" onclick="processInput(document.getElementById('inputbox').value)" style="position: fixed; top: 20px; right: 20px"/> -->
 	<div id="outputdiv" style="border-top: 1px solid gray; background-color: #101010; text-align: center;"></div>
-</body>
-</html>
+
+
+</body></html>
