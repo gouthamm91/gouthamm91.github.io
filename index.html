@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0029)https://gouthamm91.github.io/ -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Movie Catalogue V0.5.80-App-Img</title>
+	<title>Movie Catalogue V0.6.80-App-Img</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <script src="VoidVectorDataNew.js"></script> -->
 	<script src="MovieAiDataNew.js"></script>
@@ -188,6 +188,7 @@
 			if (currenturl.indexOf('?') > -1 && name == '') {
 				if (currenturl.indexOf('search=') > -1) {
 					document.getElementById('inputbox').value = currenturl.split('search=')[1].split('&')[0].replace(/\+/, ' ').trim();
+					var name = currenturl.split('search=')[1].split('&')[0].replace(/\+/, ' ').trim();
 				}
 				if (currenturl.indexOf('lang=') > -1) {
 					document.getElementById('inputlan').value = currenturl.split('lang=')[1].split('&')[0].replace(/\+/, ' ').trim();
