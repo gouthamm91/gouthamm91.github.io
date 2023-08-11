@@ -185,7 +185,7 @@
 
 		function processInput(name) {
 			var currenturl = window.location.href;
-			if (currenturl.indexOf('?') > -1) {
+			if (currenturl.indexOf('?') > -1 && name == '') {
 				if (currenturl.indexOf('search=') > -1) {
 					document.getElementById('inputbox').value = currenturl.split('search=')[1].split('&')[0].replace(/\+/, ' ').trim();
 				}
@@ -195,7 +195,6 @@
 				if (currenturl.indexOf('type=') > -1) {
 					document.getElementById('inputtyp').value = currenturl.split('type=')[1].split('&')[0].replace(/\+/, ' ').trim();
 				}
-				window.location.href = 'https://gouthamm91.github.io'
 			}
 			var inputtype = document.getElementById('inputtyp').value;
 			var inputlang = document.getElementById('inputlan').value;
@@ -298,16 +297,16 @@
 		}
 	</style>
 </head>
-<body onload="processInput(document.getElementById('inputbox').value)">
+<body onload="processInput('')">
 <!-- <body> -->
 	<center>
 	<h2>MoviePick4U</h2><br>
-	<select id="inputtyp" onchange="processInput(document.getElementById(&#39;inputbox&#39;).value)">
+	<select id="inputtyp" onchange="processInput(document.getElementById('inputbox').value)">
 		<option value="movies">Movies</option>
 		<option value="anime">Anime</option>
 		<option value="series">Tv Series</option>
 	</select>
-	<select id="inputlan" onchange="processInput(document.getElementById(&#39;inputbox&#39;).value)">
+	<select id="inputlan" onchange="processInput(document.getElementById('inputbox').value)">
 		<option value="en">English</option>
 		<option value="ta">Tamil</option>
 		<option value="ml">Malayalam</option>
