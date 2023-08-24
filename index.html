@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0029)https://gouthamm91.github.io/ -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Movie Catalogue V0.6.80-App-Img</title>
+	<title>🎬 Movie Catalogue V0.3.80-App-Img</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <script src="VoidVectorDataNew.js"></script> -->
 	<script src="MovieAiDataNew.js"></script>
@@ -112,13 +112,36 @@
 						var imgurl = imgs[k];
 						var outstr = outstr + '<div style="display: inline-block; width: 105px; margin: 7px;">';
 						var outstr = outstr + '<div style="display: inline-block; width: 105px;">';
-						var outstr = outstr + '<div style="display: block; margin-top: 30px; margin-bottom: 10px; text-align: center; width: 105px;"><a></a><a style="font-size: 100%; font-size: 75%; color: white; margin: 10px;">'+k.toUpperCase()+'</a>';
-						var outstr = outstr + '<br><a style="font-size: 100%; font-size: 75%;">SCORE</a><a style="font-size: 100%; font-size: 75%; color: white; margin: 10px;">'+val.toFixed(2)+'%</a>'
+
+						// =========
+						// title
+						// =========
+
+						// var outstr = outstr + '<div style="display: block; margin-top: 30px; margin-bottom: 10px; text-align: center; width: 105px;"><a></a><a style="font-size: 100%; font-size: 75%; color: white; margin: 10px;">'+k.toUpperCase()+'</a>';
+						var outstr = outstr + '<div style="display: block; margin-top: 30px; margin-bottom: 10px; text-align: center; width: 105px;"><a></a><a style="font-size: 100%; font-size: 75%; margin: 10px;">'+k.toUpperCase()+'</a>';
+						
+						// =========
+						// score
+						// =========
+						
+						// var outstr = outstr + '<br><a style="font-size: 100%; font-size: 75%;">Score:</a><a style="font-size: 100%; font-size: 75%; color: white; margin: 10px;">'+val.toFixed(2)+'%</a>'
+						var outstr = outstr + '<br><a style="font-size: 100%; font-size: 75%;"></a><a style="font-size: 100%; font-size: 75%; margin: 10px;">'+val.toFixed(2)+'%</a>'
+						
 						var outstr = outstr + '</div>';
 						var outstr = outstr + '<center>';
 						
 						// var outstr = outstr + '<img src="'+imgurl+'" style="border: 1px solid black; border-radius: 10px; height: auto; width: 150px; width: 105px; width: 100%; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>';
+
+						// =========
+						// img
+						// =========
+						
 						var outstr = outstr + '<img src="'+imgurl+'" style="border: 1px solid #DDDDDD; border-radius: 10px; height: auto; height: 150px; width: 150px; width: 105px; width: 100%; margin: 2px;"/>';
+
+						// =========
+						// watch
+						// =========
+						
 
 						if (document.getElementById('inputtyp').value == 'anime') {
 
@@ -129,6 +152,11 @@
 							var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+on+ott&btnI\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px;"/>'
 						}
 						
+						// =========
+						// trailer
+						// =========
+						
+
 						// var outstr = outstr + '<br><input value="Trailer" type="button" onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>'
 						var outstr = outstr + '<br><input value="Trailer" type="button" onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px;"/>'
 
@@ -184,19 +212,7 @@
 		}
 
 		function processInput(name) {
-			var currenturl = window.location.href;
-			if (currenturl.indexOf('?') > -1 && name == '') {
-				if (currenturl.indexOf('search=') > -1) {
-					document.getElementById('inputbox').value = currenturl.split('search=')[1].split('&')[0].replace(/\+/, ' ').trim();
-					var name = currenturl.split('search=')[1].split('&')[0].replace(/\+/, ' ').trim();
-				}
-				if (currenturl.indexOf('lang=') > -1) {
-					document.getElementById('inputlan').value = currenturl.split('lang=')[1].split('&')[0].replace(/\+/, ' ').trim();
-				}
-				if (currenturl.indexOf('type=') > -1) {
-					document.getElementById('inputtyp').value = currenturl.split('type=')[1].split('&')[0].replace(/\+/, ' ').trim();
-				}
-			}
+
 			var inputtype = document.getElementById('inputtyp').value;
 			var inputlang = document.getElementById('inputlan').value;
 
@@ -270,44 +286,66 @@
 			width: 100%;
 			height: 100%;
 			font-family: verdana;
-			background-color: #252525;
+			/*background-color: #252525;*/
+			background-color: #DDDDDD;
 			/*font-size: 102%;*/
-			color: #DDDDDD;
+			/*color: #DDDDDD;*/
 			padding:  0px;
 			margin: 0px;
 		}
 		input, select {
 			background-color: #181818;
+			background-color: #EEEEEE;
 			border: 1px solid grey;
 			border-radius: 50px;
 			font-size: 110%;
 			font-size: 105%;
-			color: #DDDDDD;
+			/*color: #DDDDDD;*/
 			padding: 5px;
 			padding: 7px;
 			margin-bottom: 20px;
+			box-shadow: 7px 3px 5px rgba(0, 0, 0, 0.25);
+			padding-left: 14px;
 		}
+
 		div {
 			margin: 2px;
 			margin: 0px;
+			text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+			font-weight: bold;
 		}
 		h2 {
 			margin: 20px;
-			color: #DDDDDD;
+			/*color: #DDDDDD;*/
 			display: inline-block;
+		}
+
+		.out {
+			border-top: 1px solid gray; 
+			background-color: #101010; 
+			background-color: #DDDDDD; 
+			text-align: center;
+		}
+
+		img {
+			box-shadow: 7px 3px 5px rgba(0, 0, 0, 0.5);
+		}
+
+		.headericon {
+			font-size: 150%;
 		}
 	</style>
 </head>
-<body onload="processInput('')">
+<body onload="processInput(document.getElementById('inputbox').value)">
 <!-- <body> -->
 	<center>
-	<h2>MoviePick4U</h2><br>
-	<select id="inputtyp" onchange="processInput(document.getElementById('inputbox').value)">
+	<h2><a class="headericon">🎬</a> MoviePick4U</h2><br>
+	<select id="inputtyp" onchange="processInput(document.getElementById(&#39;inputbox&#39;).value)">
 		<option value="movies">Movies</option>
 		<option value="anime">Anime</option>
 		<option value="series">Tv Series</option>
 	</select>
-	<select id="inputlan" onchange="processInput(document.getElementById('inputbox').value)">
+	<select id="inputlan" onchange="processInput(document.getElementById(&#39;inputbox&#39;).value)">
 		<option value="en">English</option>
 		<option value="ta">Tamil</option>
 		<option value="ml">Malayalam</option>
@@ -315,11 +353,11 @@
 		<option value="kn">Kanada</option>
 		<option value="hi">Hindi</option>
 	</select>
-	<input  type="search" id="inputbox" onchange="processInput(this.value)" style="width: calc(80% - 40px);">
-	<input type="button" value="search" onclick="processInput(document.getElementById(&#39;inputbox&#39;).value)">
+	<input type="search" id="inputbox" onchange="processInput(this.value)" style="width: calc(80% - 40px);">
+	<input type="button" value="search" onclick="processInput(document.getElementById('inputbox').value)">
 	</center>
 	<!-- <input value="Top" type="button" onclick="processInput(document.getElementById('inputbox').value)" style="position: fixed; top: 20px; right: 20px"/> -->
-	<div id="outputdiv" style="border-top: 1px solid gray; background-color: #101010; text-align: center;"></div>
+	<div id="outputdiv" class="out" style=""></div>
 
 
 </body></html>
