@@ -2,7 +2,7 @@
 <!-- saved from url=(0029)https://gouthamm91.github.io/ -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
-	<title>MoviePick4U V0.4.80-App-Img</title>
+	<title>Movie Catalogue V0.3.80-App-Img</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <script src="VoidVectorDataNew.js"></script> -->
 	<script src="MovieAiDataNew.js"></script>
@@ -179,7 +179,7 @@
 		function findName(name, collectionNam) {
 			var wrds = collectionNam.join(" ").replace(/'/g, "").replace(/:/g, "").toLowerCase().split(" ");
 			
-			var namewrds = name.trim().toLowerCase().replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").split(" ");
+			var namewrds = name.trim().replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").replace(/  /g, " ").split(" ");
 
 			var newname = "";
 			for (n=0; n<namewrds.length; n++) {
@@ -191,29 +191,16 @@
 			console.log(newname);
 
 			var highscore = 0;
-			var metahighscore = 0;
 			var finalname = "";
 			for (c=0; c<collectionNam.length; c++) {
 				var score = 0;
 				for (nn=0; nn<newname.length; nn++) {
-					var collNam = ' ' + collectionNam[c].replace(/'/g, "").replace(/:/g, "").toLowerCase() + ' ';
-					if (collNam.indexOf(' '+newname[nn]+' ') > -1) {
+					if (collectionNam[c].indexOf(newname[nn]) > -1) {
 						var score = score + 1;
 					}
 				}
-
-				var metascore = 1/collectionNam[c].length;
-
-				if (score > 0 && score > highscore) {
+				if (score > highscore) {
 					var highscore = score;
-					var metahighscore = metascore;
-					var finalname = collectionNam[c];
-				} else if (score > 0 && score == highscore && metascore > metahighscore) {
-					console.log(collectionNam[c])
-					console.log(score)
-					console.log(metascore)
-					var highscore = score;
-					var metahighscore = metascore;
 					var finalname = collectionNam[c];
 				}
 			}
