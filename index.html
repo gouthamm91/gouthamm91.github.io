@@ -351,18 +351,45 @@
 			font-size: 150%;
 		}
 	</style>
+	<script type="text/javascript">
+		searchKey = 'search=';
+		languageKey = 'language=';
+		typeKey = 'type=';
+		function changeURL() {
+			var inpBox = document.getElementById("inputbox");
+			var reelLang = document.getElementById("inputlan");
+			var reelType = document.getElementById("inputtyp");
+			window.location.href = '?'+searchKey+inpBox.value.replace(/ /g, '+')+'&'+languageKey+reelLang.value+'&'+typeKey+reelType.value;
+		}
+		function getURL() {
+			var inpBox = document.getElementById("inputbox");
+			var reelLang = document.getElementById("inputlan");
+			var reelType = document.getElementById("inputtyp");
+			var url = window.location.href;
+			if (url.indexOf(searchKey) > -1) {
+				inpBox.value = url.split(searchKey)[1].split('&')[0].replace(/%20/g, ' ').replace(/\+/g, ' ');
+			}
+			if (url.indexOf(languageKey) > -1) {
+				reelLang.value = url.split(languageKey)[1].split('&')[0];
+			}
+			if (url.indexOf(typeKey) > -1) {
+				reelType.value = url.split(typeKey)[1].split('&')[0];
+			}
+			processInput(inpBox.value);
+		}
+	</script>
 </head>
-<body onload="processInput(document.getElementById('inputbox').value)">
+<body onload="getURL()">
 <!-- <body> -->
 	<div style="display: none;">This is a movie recommender system. Over 30,000 Movies, Tv-Shows and Anime from 6 languages are used to rocommend you something you might like to watch. Includes a link to the show and its trailers.</div>
 	<center>
 	<h2><a class="headericon">🎬</a> <u>MoviePicks4U</u></h2><br>
-	<select id="inputtyp" onchange="processInput(document.getElementById(&#39;inputbox&#39;).value)">
+	<select id="inputtyp" onchange="changeURL()">
 		<option value="movies">Movies</option>
 		<option value="anime">Anime</option>
 		<option value="series">Tv Series</option>
 	</select>
-	<select id="inputlan" onchange="processInput(document.getElementById(&#39;inputbox&#39;).value)">
+	<select id="inputlan" onchange="changeURL()">
 		<option value="en">English</option>
 		<option value="ta">Tamil</option>
 		<option value="ml">Malayalam</option>
@@ -370,9 +397,12 @@
 		<option value="kn">Kanada</option>
 		<option value="hi">Hindi</option>
 	</select>
-	<input type="search" id="inputbox" onchange="processInput(this.value)" style="width: calc(80% - 40px);">
-	<input type="button" value="search" onclick="processInput(document.getElementById('inputbox').value)">
+	<input type="search" id="inputbox" onchange="changeURL()" style="width: calc(80% - 40px);">
+	<input type="button" value="search" onclick="changeURL()">
 	</center>
+
+
+
 	<!-- <input value="Top" type="button" onclick="processInput(document.getElementById('inputbox').value)" style="position: fixed; top: 20px; right: 20px"/> -->
 	<div id="outputdiv" class="out" style=""></div>
 
