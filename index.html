@@ -353,6 +353,7 @@
 	</style>
 	<script type="text/javascript">
 		searchKey = 'search=';
+		queryKey = 'query=';
 		languageKey = 'language=';
 		typeKey = 'type=';
 		function changeURL() {
@@ -368,6 +369,10 @@
 			var url = window.location.href;
 			if (url.indexOf(searchKey) > -1) {
 				inpBox.value = url.split(searchKey)[1].split('&')[0].replace(/%20/g, ' ').replace(/\+/g, ' ');
+			} else { 
+				if (url.indexOf(queryKey) > -1) {
+					inpBox.value = url.split(queryKey)[1].split('&')[0].replace(/%20/g, ' ').replace(/\+/g, ' ');
+				}
 			}
 			if (url.indexOf(languageKey) > -1) {
 				reelLang.value = url.split(languageKey)[1].split('&')[0];
