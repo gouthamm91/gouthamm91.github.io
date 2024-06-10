@@ -149,11 +149,11 @@
 						if (document.getElementById('inputtyp').value == 'anime') {
 
 							// var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>'
-							var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px;"/>'
+							var outstr = outstr + '<br><input value="▶" type="button" onclick="window.open(\'https://9animetv.to/search?keyword='+k.replace(/ /g, '+').replace(/'/g, '')+'\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px;"/>'
 						} else {
 							// var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+on+ott&btnI\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>'
 							// var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://www.google.com/search?q=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+on+ott&btnI\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px;"/>'
-							var outstr = outstr + '<br><input value="Watch" type="button" onclick="window.open(\'https://void-web-search-app.vercel.app/search/=watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+on+ott\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px;"/>'
+							var outstr = outstr + '<br><input value="▶" type="button" onclick="window.open(\'https://void-web-search-app.vercel.app/search/watch+'+k.replace(/ /g, '+').replace(/'/g, '')+'+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+on+ott\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px;"/>'
 						}
 						
 						// =========
@@ -162,7 +162,7 @@
 						
 
 						// var outstr = outstr + '<br><input value="Trailer" type="button" onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px; box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.2), 0 6px 20px 0 rgba(225, 225, 225, 0.19);"/>'
-						var outstr = outstr + '<br><input value="Trailer" type="button" onclick="window.open(\'https://www.google.com/search?q=play+trailer+of+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+'+k.replace(/ /g, '+').replace(/'/g, '')+'&btnI\', target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px;"/>'
+						var outstr = outstr + '<br><input value="🎞️" type="button" onclick="window.open(\'https://void-web-search-app.vercel.app/search/play+trailer+of+'+document.getElementById('inputtyp').value.replace('movies', 'movie')+'+'+k.replace(/ /g, '+').replace(/'/g, ''), target=\'_blank\')" style="width: 150px; width: 105px; margin: 2px;"/>'
 
 						var outstr = outstr + '</center>';
 
@@ -323,6 +323,7 @@
 			margin-bottom: 20px;
 			box-shadow: 7px 3px 5px rgba(0, 0, 0, 0.25);
 			padding-left: 14px;
+			cursor: pointer;
 		}
 
 		div {
