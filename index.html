@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="google-site-verification" content="BcvsaEzCOauTaNB_59xZVKEGSbI55W1AmI95E8HCqWo" />
 	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
-	<title>Movie Picks 4 You V0.14</title>
+	<title>Movie Picks 4 You V0.15</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <script src="VoidVectorDataNew.js"></script> -->
 	<script src="MovieAiDataNew.js"></script>
@@ -361,6 +361,7 @@
 		queryKey = 'query=';
 		languageKey = 'language=';
 		typeKey = 'type=';
+		displayKey = 'display=';
 		function changeURL() {
 			var inpBox = document.getElementById("inputbox");
 			var reelLang = document.getElementById("inputlan");
@@ -371,6 +372,7 @@
 			var inpBox = document.getElementById("inputbox");
 			var reelLang = document.getElementById("inputlan");
 			var reelType = document.getElementById("inputtyp");
+			var srchbtn = document.getElementById("searchbtn");
 			var url = window.location.href;
 			if (url.indexOf(searchKey) > -1) {
 				inpBox.value = url.split(searchKey)[1].split('&')[0].replace(/%20/g, ' ').replace(/\+/g, ' ');
@@ -384,6 +386,12 @@
 			}
 			if (url.indexOf(typeKey) > -1) {
 				reelType.value = url.split(typeKey)[1].split('&')[0];
+			}
+			if (url.indexOf(displayKey) > -1 && url.split(displayKey)[url.split(displayKey).length - 1].split('&')[0].toLowerCase() == 'main') {
+				inpBox.style.display = 'none';
+				reelLang.style.display = 'none';
+				reelType.style.display = 'none';
+				srchbtn.style.display = 'none';
 			}
 			processInput(inpBox.value);
 		}
@@ -408,7 +416,7 @@
 		<option value="hi">Hindi</option>
 	</select>
 	<input type="search" id="inputbox" onchange="changeURL()" style="width: calc(80% - 80px); min-width: 250px;">
-	<input type="button" value="search" onclick="changeURL()">
+	<input type="button" id="searchbtn" value="search" onclick="changeURL()">
 	</center>
 
 
